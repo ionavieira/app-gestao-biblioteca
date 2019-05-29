@@ -67,7 +67,8 @@ public class Usuario{
         this.dataNasc = dataNasc;
     }
     
-    
-    
-    
+    @Override
+    public String toString(){
+        return "Codigo: "+getCodigo()+ "\tNome: "+getNome()+"\nCPF: "+ getCpf()+"\tData Nascimento"+getDataNasc()+ "\nEndereço: "+getEndereco()+"\tTelefone: "+getTelefone();
+    }    
 }

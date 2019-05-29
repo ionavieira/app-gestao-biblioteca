@@ -45,6 +45,28 @@ public class Emprestimo{
 
     public void setValorMulta(double valorMulta) {
         this.valorMulta = valorMulta;
+    } 
+    
+    public void adicionarItem() {
+        
+    }
+    public void devolverItem(){
+        
     }  
-   
+    
+    public void devolverTodos(){
+        
+    }
+    
+    public void calcularValorMulta(){
+        
+    }
+    
+    public void adicionarUsuario(){
+        
+    }
+    
+    public void verificarDatas(){
+        
+    }
 }

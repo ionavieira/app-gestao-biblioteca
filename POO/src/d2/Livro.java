@@ -46,5 +46,13 @@ public class Livro extends Publicacao {
         this.quantDisponivel = quantDisponivel;
     }
     
+    public void atualizarQtdeDisponivel(){
+        
+    }
+    
+    @Override
+    public String toString(){
+        return "Código: "+ getCodigo() +"\tTitulo: " + getTitulo() + "\nEditora" + getEditora()+ "\tAno: "+getAno()+  "\tAutores: " +getAutores() + "\nQtde Exemplar: "+getQuantExemplar()+ "\tQtde Disponivel: " + getQuantDisponivel();
+    }
     
 }

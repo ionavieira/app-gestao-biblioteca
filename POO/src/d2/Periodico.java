@@ -26,6 +26,9 @@ public class Periodico extends Publicacao {
         this.mes = mes;
     }
     
-    
+    @Override
+    public String toString(){
+         return "Código: "+ getCodigo() +"\tTitulo: " + getTitulo() + "\nEditora" + getEditora()+ "\tAno: "+getAno()+  "\nNumero Edição: " +getNumeroEdicao()+ "\tMês: "+getMes();
+    }
     
 }

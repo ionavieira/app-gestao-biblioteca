@@ -17,5 +17,8 @@ public class ItemEmprestimo {
         this.dataDevolucao = dataDevolucao;
     } 
     
+    public void atualizarDevolucao(){
+        
+    }
     
 }
