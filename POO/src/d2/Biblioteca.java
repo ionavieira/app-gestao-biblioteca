@@ -55,7 +55,8 @@ public class Biblioteca implements Ibliblioteca {
 
     @Override
     public void gerarCodigo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        usuario.gerarCodigo();
+        publicacao.gerarCodigo();
     }
 
     public String listarUsuario() {
