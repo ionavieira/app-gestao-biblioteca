@@ -11,10 +11,10 @@ public interface Ibliblioteca {
     void cadastrarEmprestimo();
     void cadastrarDevolucao();
     void gerarCodigo();
-    void listarUsuario();
-    void listarPublicacao();
-    void listarEmprestimo();
-    void listarDevolucao();
+    String listarUsuario();
+    String listarPublicacao();
+    String listarEmprestimo();
+    String listarDevolucao();
     void pesquisarPublicacao();
     
 }
