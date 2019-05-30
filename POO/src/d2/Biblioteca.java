@@ -14,6 +14,15 @@ public class Biblioteca implements Ibliblioteca {
     Publicacao publicacao = new Publicacao();
     Emprestimo emprestimo = new Emprestimo();
 
+//    public static void main(String[] args) {;
+//        //Usuario usuario = new Usuario();
+//        Publicacao publicacao = new Publicacao();
+//        //usuario.cadastrarUsuario();
+//        //System.out.println(usuario.listarUsuario());
+//        publicacao.cadastraPublicacao();
+//        System.out.println(publicacao.listarPublicacao());
+//        
+//    } 
     @Override
     public void cadastrarUsuario() {
         usuario.cadastrarUsuario();
