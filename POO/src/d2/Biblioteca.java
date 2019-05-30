@@ -10,31 +10,23 @@ public class Biblioteca implements Ibliblioteca {
     private String nome;
     private String endereco;
 
-    public static void main(String[] args) {
-        //Usuario usuario = new Usuario();
-        Publicacao publicacao = new Publicacao();
-        //usuario.cadastrarUsuario();
-        //System.out.println(usuario.listarUsuario());
-        publicacao.cadastraPublicacao();
-        System.out.println(publicacao.listarPublicacao());
-        
-    }
+    Usuario usuario = new Usuario();
+    Publicacao publicacao = new Publicacao();
+    Emprestimo emprestimo = new Emprestimo();
 
     @Override
     public void cadastrarUsuario() {
-        Usuario usuario = new Usuario();
         usuario.cadastrarUsuario();
     }
 
     @Override
     public void cadastrarPublicacao() {
-        Publicacao publicacao = new Publicacao();
         publicacao.cadastraPublicacao();
     }
 
     @Override
     public void cadastrarEmprestimo() {
-        Emprestimo emprestimo = new Emprestimo();
+
         try {
             emprestimo.adicionarItem();
         } catch (ParseException ex) {
@@ -44,7 +36,12 @@ public class Biblioteca implements Ibliblioteca {
 
     @Override
     public void cadastrarDevolucao() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            emprestimo.adicionarItem();
+        } catch (ParseException ex) {
+            Logger.getLogger(Biblioteca.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     @Override
@@ -52,32 +49,30 @@ public class Biblioteca implements Ibliblioteca {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public void listarUsuario() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String listarUsuario() {
+        return usuario.listarUsuario();
     }
 
     @Override
-    public void listarPublicacao() {
-        Publicacao publicacao = new Publicacao();
-        publicacao.listarPublicacao();
+    public String listarPublicacao() {
+        return publicacao.listarPublicacao();
     }
 
     @Override
-    public void listarEmprestimo() {
-       
+    public String listarEmprestimo() {
+        return emprestimo.listarEmprestimo();
     }
 
     @Override
-    public void listarDevolucao() {
+    public String listarDevolucao() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void pesquisarPublicacao() {
-//        String nomeLivro = JOptionPane.showInputDialog("Digite o titulo da publicação: ");
-//        String nomeAutor = nomeLivro;
-//       Publicacao publicacao = new Publicacao();
-//       publicacao.pesquisarPublicacao(String nomeLivro, String... nomeAutor);
+        String _nome = JOptionPane.showInputDialog("Digite o código da Publicação: ");
+        String _nomeAutor = JOptionPane.showInputDialog("Digite o código da Publicação: ");
+
+        publicacao.pesquisarPublicacao(_nome, _nomeAutor);
     }
 }

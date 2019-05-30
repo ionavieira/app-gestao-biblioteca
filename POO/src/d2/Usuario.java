@@ -85,7 +85,6 @@ public class Usuario {
 
     //Método para Cadastro de Usuário
     public void cadastrarUsuario() {
-        int indicadorCadastro = 0; // Se 1 - Já cadastrado
 
         if (usuarioAux.isEmpty()) {
             this.cpf = Integer.parseInt(JOptionPane.showInputDialog("Digite o CPF do usuário: "));
@@ -96,12 +95,7 @@ public class Usuario {
             }
         } else {
             this.cpf = Integer.parseInt(JOptionPane.showInputDialog("Digite o CPF do usuário: "));
-            for (int i = 0; i <= usuarioAux.size(); i++) {
-                if (usuarioAux.get(i).getCpf() == this.cpf) {
-                    indicadorCadastro = 1;
-                }
-            }
-            if (indicadorCadastro == 1) {
+            if (verificaUsuarioExistente(this.cpf)) {
                 JOptionPane.showMessageDialog(null, "Esse usuário já foi cadastrado!");
             } else {
                 try {
@@ -111,6 +105,15 @@ public class Usuario {
                 }
             }
         }
+    }
+
+    public boolean verificaUsuarioExistente(long cpf) {
+        for (int i = 0; i <= usuarioAux.size(); i++) {
+            if (usuarioAux.get(i).getCpf() == this.cpf) {
+                return true;
+            }
+        }
+        return false;
     }
 
     //Método para Listar os Usuários

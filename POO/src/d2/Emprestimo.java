@@ -93,22 +93,41 @@ public class Emprestimo {
             }
         }
     }
-  
+
     public void calcularValorMulta() {
         double taxa = 0.5;
         this.valorMulta = verificarDatas() * (1 + taxa);
     }
 
-    public Usuario adicionaUsuario() {
+    public Usuario adicionaUsuario(long... cpf) {
+        long _cpf;
         usuario = new Usuario();
-        usuario.cadastrarUsuario();
+        if ((!cpf.equals(0)) || (!(cpf.length > 0))) {
+            _cpf = Integer.parseInt(JOptionPane.showInputDialog("Digite o CPF do usuário: "));
+            if (usuario.verificaUsuarioExistente(_cpf)) {
+                return usuario;
+            } else {
+                JOptionPane.showMessageDialog(null, "O usuário informado não possui cadastro, vamos cadastra-lo\n");
+                usuario.cadastrarUsuario();
+                adicionaUsuario(usuario.getCpf());
+            }
+        }
         return usuario;
     }
 
-    //parâmetro auxiliar somente para diferenciar assinatura dos métodos; não está sendo utilizado
-    public void adicionaUsuario(int... aux) {
-        usuario = new Usuario();
-        usuario.cadastrarUsuario();
+    //Método para Listar os Emprestimos
+    public String listarEmprestimo() {
+        String _listLending = "Não há livros emprestados emprestada";
+        if (!emprestimoAux.isEmpty()) {
+            try {
+                for (int i = 0; i < emprestimoAux.size(); i++) {
+                    _listLending = "Livro [" + i + "]: " + emprestimoAux.get(i).toString();
+                }
+            } catch (Exception ex) {
+                return "Opa, algo deu errado !";
+            }
+        }
+        return _listLending;
     }
 
     // <editor-fold defaultstate="collapsed" desc="Métodos pendentes para implementação">
@@ -133,5 +152,4 @@ public class Emprestimo {
                 + "\nData Previsão de Devolucao: " + dataPrevDevolucao
                 + "\nValorMulta: " + valorMulta;
     }
-
 }
